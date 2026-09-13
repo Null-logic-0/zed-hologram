@@ -50,7 +50,7 @@ jobs:
         run: |
           cd grammar
           for q in ../languages/holo/*.scm; do
-            if err=$(tree-sitter query "$q" ../examples/counter.holo 2>&1 >/dev/null); then
+            if err=$(tree-sitter query "$q" ../examples/kitchen-sink.holo 2>&1 >/dev/null); then
               echo "  ok       $(basename "$q")"
             else
               echo "  FAILED   $(basename "$q")"; echo "$err" | head -5; exit 1

@@ -42,9 +42,7 @@
 (quoted_attribute_value "\"" @string)
 (attribute_text) @string
 
-; ---------------------------------------------------------------------
 ; Expressions
-; ---------------------------------------------------------------------
 ; Only the braces are styled here. The contents are handled by the Elixir
 ; injection in injections.scm.
 (expression
@@ -53,9 +51,7 @@
     "}"
   ] @punctuation.special)
 
-; ---------------------------------------------------------------------
 ; Control-flow blocks
-; ---------------------------------------------------------------------
 [
   "{%if"
   "{%for"
@@ -75,9 +71,7 @@
 ; A raw block's body is literal text, so it reads as a string.
 (raw_text) @string
 
-; ---------------------------------------------------------------------
 ; Comments and escapes
-; ---------------------------------------------------------------------
 (comment
   [
     "<!--"

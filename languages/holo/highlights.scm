@@ -5,9 +5,7 @@
 ; falls back to "tag" when it does not. Choices below follow the official
 ; Hologram VS Code grammar so colours match what Hologram users expect.
 
-; ---------------------------------------------------------------------
 ; Tags
-; ---------------------------------------------------------------------
 (tag_name) @tag
 
 ; Components are modules, so they are typed like Elixir modules rather than
@@ -23,9 +21,7 @@
   "/>"
 ] @punctuation.bracket
 
-; ---------------------------------------------------------------------
 ; Attributes
-; ---------------------------------------------------------------------
 (attribute_name) @attribute
 
 ; Event bindings ($click, $change.debounce(300)) are Hologram directives,

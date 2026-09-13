@@ -1,0 +1,43 @@
+<!-- Sample HOLO template: exercises every construct our grammar must handle -->
+<div class="counter {@theme}">
+  <h1>Hello, {@name}!</h1>
+
+  <p>Count: <strong>{@count}</strong></p>
+
+  <button $click="increment">+</button>
+  <button $click={:add, amount: 10}>+10</button>
+  <button $click={action: :reset, params: %{to: 0}}>Reset</button>
+  <button $click.stop_propagation="noop">Stop</button>
+  <input $change="update_query" $change.debounce(300)="run_search" />
+
+  {%if @count > 10}
+    <p class="warning">That is a lot of clicks.</p>
+  {%else}
+    <p>Keep going.</p>
+  {/if}
+
+  <ul>
+    {%for item <- @items}
+      <li id={"item-#{item.id}"} data-active={item.id == @selected_id}>{item.name}</li>
+    {/for}
+  </ul>
+
+  <Badge label="new" count={@count} />
+  <MyApp.Components.Card ...{@card_props}>
+    <p>Card body</p>
+  </MyApp.Components.Card>
+
+  <{@heading_tag} class="dynamic">{@text}</{@heading_tag}>
+
+  {%raw}
+    Literal braces stay as-is: {@not_an_expression}
+  {/raw}
+
+  <p>Escaped braces: \{not an expression\}</p>
+
+  <slot />
+
+  <script>
+    console.log("HOLO can embed JavaScript");
+  </script>
+</div>

@@ -1,9 +1,5 @@
 ; Syntax highlighting for HOLO templates.
-;
-; Capture names are Zed's, and Zed resolves them by longest dotted prefix:
-; "@tag.doctype" uses the theme's "tag.doctype" style when it exists and
-; falls back to "tag" when it does not. Choices below follow the official
-; Hologram VS Code grammar so colours match what Hologram users expect.
+
 
 ; Tags
 (tag_name) @tag

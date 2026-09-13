@@ -140,4 +140,11 @@ extension.
 
 ## Licence
 
-MIT.
+Copyright (C) 2026 Luka Tchelidze.
+
+Released under the [GNU General Public License v3.0 or later](LICENSE). This
+program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY. See the licence for details.
+
+The same licence covers the grammar in
+[tree-sitter-holo](https://github.com/Null-logic-0/tree-sitter-holo).

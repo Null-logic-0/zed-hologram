@@ -1,2 +1,3 @@
 name = "HOLO"
+grammar = "holo"
 path_suffixes = ["holo"]

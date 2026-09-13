@@ -5,3 +5,7 @@ schema_version = 1
 authors = ["Luka Tchelidze <lukachelidze3008@gmail.com>"]
 description = "HOLO template language support for the Hologram framework: syntax highlighting, indentation, and formatting via mix format."
 repository = "https://github.com/Null-logic-0/zed-hologram"
+
+[grammars.holo]
+repository = "file:///Users/User/Desktop/hologram-zed/tree-sitter-holo"
+rev = "919e311f4d24328b94923270fd7ed8f2aaf8db21"

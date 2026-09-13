@@ -1,0 +1,7 @@
+# Written by Zed when the extension is installed as a dev extension:
+# a checkout of each grammar repo plus the compiled WebAssembly parser.
+grammars/
+*.wasm
+
+# Only present if the extension ever gains Rust code.
+target/

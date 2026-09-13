@@ -1,10 +1,8 @@
-; Auto-indentation.
-;
-; @indent marks a node whose contents sit one level in. @start and @end move
-; the ends of that range, so the lines carrying the delimiters themselves
-; stay at the outer level. @outdent closes the innermost range early.
+; @indent marks a node whose contents sit one level in.
+; @start and @end shrink that range so the delimiter lines stay put.
+; @outdent closes the innermost range early.
 
-; While a start tag is still open, its attributes indent.
+; Attributes indent while a start tag is still open.
 (start_tag
   ">" @end) @indent
 
@@ -17,8 +15,7 @@
     "/>"
   ] @end) @indent
 
-; Children of an element indent. The end tag is optional so indentation
-; still works while you are typing and have not closed the element yet.
+; Element children. The end tag is optional so this works while typing.
 [
   (element
     (start_tag) @start
@@ -31,7 +28,6 @@
     (end_tag)? @end)
 ] @indent
 
-; Children of a control-flow block indent the same way.
 [
   (if_block
     (if_open) @start
@@ -44,7 +40,7 @@
     (raw_close)? @end)
 ] @indent
 
-; {%else} returns to the block's own level, then its children indent again.
+; Pull {%else} back to the block's level, then indent its children again.
 (else_directive) @outdent
 
 (else_branch) @indent

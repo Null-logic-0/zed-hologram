@@ -31,9 +31,8 @@ jobs:
           print("manifest and config are valid")
           PY
 
-      # The most common way to break this extension is to pin a grammar
-      # commit that was never pushed. Zed fails at install time; CI should
-      # fail sooner.
+      # Pinning a commit that was never pushed breaks the extension at
+      # install time. Catch it here instead.
       - name: Check the pinned grammar commit exists on the remote
         run: |
           repo=$(python3 -c "import tomllib;print(tomllib.load(open('extension.toml','rb'))['grammars']['holo']['repository'])")
@@ -44,8 +43,8 @@ jobs:
           git checkout -q "$rev"
           echo "grammar $rev is present on the remote"
 
-      # A query that names a node the grammar no longer has fails only at
-      # runtime inside Zed, so check every query against the pinned grammar.
+      # A query naming a node the grammar no longer has fails only at
+      # runtime in Zed.
       - name: Check every query against that grammar
         run: |
           cd grammar

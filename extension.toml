@@ -8,4 +8,4 @@ repository = "https://github.com/Null-logic-0/zed-hologram"
 
 [grammars.holo]
 repository = "https://github.com/Null-logic-0/tree-sitter-holo"
-rev = "89121b3ceec654da8a471e6f39b605e3de491b2c"
+rev = "25074a6cbe16d70082e06015a777c94cd203a818"

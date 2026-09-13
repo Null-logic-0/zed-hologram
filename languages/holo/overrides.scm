@@ -1,8 +1,5 @@
-; Named regions that other settings can refer to.
-;
-; The bracket rules in config.toml use not_in = ["comment", "string"], and
-; these captures are what give those names meaning. Without this file the
-; editor would happily auto-close a quote inside a comment.
+; Named regions. The bracket rules in config.toml use not_in = ["comment",
+; "string"], and these captures are what give those names meaning.
 
 (comment) @comment
 

@@ -1,11 +1,9 @@
-; Syntax highlighting for HOLO templates.
+; Colours. Zed falls back on dotted names, so @tag.doctype uses "tag" if the
+; theme has no "tag.doctype".
 
-
-; Tags
 (tag_name) @tag
 
-; Components are modules, so they are typed like Elixir modules rather than
-; like HTML tags. This is what the official grammar and HEEx both do.
+; Components are Elixir modules, so they read as types, not tags.
 (component_name) @type
 
 (doctype) @tag.doctype
@@ -17,33 +15,26 @@
   "/>"
 ] @punctuation.bracket
 
-; Attributes
 (attribute_name) @attribute
 
-; Event bindings ($click, $change.debounce(300)) are Hologram directives,
-; not HTML attributes, so they are keyworded to stand out. Same treatment
-; HEEx gives :if and :for.
+; $click and friends are Hologram directives, not HTML attributes.
 (event_name) @keyword
 
 (spread "..." @operator)
 
 "=" @punctuation.delimiter
 
-; Quote characters and literal text are strings. Expressions embedded in a
-; value are deliberately left alone so the Elixir injection can style them.
+; Quotes and literal text only. Expressions inside are left to the injection.
 (quoted_attribute_value "\"" @string)
 (attribute_text) @string
 
-; Expressions
-; Only the braces are styled here. The contents are handled by the Elixir
-; injection in injections.scm.
+; Braces only. The contents are Elixir, coloured by the injection.
 (expression
   [
     "{"
     "}"
   ] @punctuation.special)
 
-; Control-flow blocks
 [
   "{%if"
   "{%for"
@@ -60,10 +51,9 @@
   (raw_close)
 ] @keyword
 
-; A raw block's body is literal text, so it reads as a string.
+; A raw block's body is literal text.
 (raw_text) @string
 
-; Comments and escapes
 (comment
   [
     "<!--"

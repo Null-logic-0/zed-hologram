@@ -1,10 +1,6 @@
-; Bracket matching, auto-closing, and the highlight shown when the cursor
-; sits on one half of a pair.
-;
-; newline.only marks a pair that should only affect what happens when you
-; press Return between the two halves, not bracket highlighting.
-; rainbow.exclude keeps tags out of rainbow bracket colouring, which would
-; otherwise make ordinary markup very noisy.
+; Matching pairs, for highlighting and auto-close.
+; newline.only = only affects pressing Return between the halves.
+; rainbow.exclude = keep tags out of rainbow bracket colouring.
 
 ((start_tag
   "<" @open
@@ -47,12 +43,10 @@
   (#set! newline.only)
   (#set! rainbow.exclude))
 
-; Expression braces are a real pair worth highlighting.
 (expression
   "{" @open
   "}" @close)
 
-; Block open and close tags pair up like tags do.
 ((if_block
   (if_open) @open
   (if_close) @close)

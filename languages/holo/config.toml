@@ -3,25 +3,23 @@ grammar = "holo"
 path_suffixes = ["holo"]
 tab_size = 2
 
-# HOLO has no line comment. cmd-/ toggles an HTML block comment.
+# HOLO has no line comment, so cmd-/ uses an HTML block comment.
 block_comment = { start = "<!-- ", prefix = "", end = " -->", tab_size = 0 }
 
-# Wrap a selection in a tag: type the tag name after selecting.
 wrap_characters = { start_prefix = "<", start_suffix = ">", end_prefix = "</", end_suffix = ">" }
 
-# Typing a closing character just before one of these overtypes it instead
-# of inserting a duplicate.
+# Typing one of these just before an identical character overtypes it.
 autoclose_before = ">})"
 
 brackets = [
-    # "<" does not auto-close: "<" is common inside expressions, as a
-    # comparison and as the "<-" of a for generator.
+    # "<" does not auto-close: it is common in expressions, as a comparison
+    # and as the "<-" of a for generator.
     { start = "<", end = ">", close = false, newline = true, not_in = ["comment", "string"] },
     { start = "{", end = "}", close = true, newline = true, not_in = ["comment", "string"] },
     { start = "[", end = "]", close = true, newline = true, not_in = ["comment", "string"] },
     { start = "(", end = ")", close = true, newline = true, not_in = ["comment", "string"] },
     { start = "\"", end = "\"", close = true, newline = false, not_in = ["comment", "string"] },
-    # Typing "<!--" completes the comment to "<!--  -->".
+    # Completes "<!--" to "<!--  -->".
     { start = "!--", end = " --", close = true, newline = false, not_in = ["comment", "string"] },
 ]
 

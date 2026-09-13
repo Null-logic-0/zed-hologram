@@ -1,8 +1,10 @@
-// Formatter setup for HOLO in Zed.
-
+// Formatter setup for HOLO. Extensions cannot configure formatters, so this
+// goes in a project's .zed/settings.json or your ~/.config/zed/settings.json.
 {
   "languages": {
     "HOLO": {
+      // Zed pipes the buffer to stdin and takes stdout back.
+      // --stdin-filename only tells mix format which rules apply.
       "formatter": {
         "external": {
           "command": "mix",

@@ -1,0 +1,7 @@
+id = "hologram"
+name = "Hologram"
+version = "0.1.0"
+schema_version = 1
+authors = ["Luka Tchelidze <lukachelidze3008@gmail.com>"]
+description = "HOLO template language support for the Hologram framework: syntax highlighting, indentation, and formatting via mix format."
+repository = "https://github.com/Null-logic-0/zed-hologram"

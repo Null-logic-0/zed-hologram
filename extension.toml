@@ -7,5 +7,5 @@ description = "HOLO template language support for the Hologram framework: syntax
 repository = "https://github.com/Null-logic-0/zed-hologram"
 
 [grammars.holo]
-repository = "file:///Users/User/Desktop/hologram-zed/tree-sitter-holo"
+repository = "https://github.com/Null-logic-0/tree-sitter-holo"
 rev = "4a8f8b2a912d3146e185fa127959362e46c7855e"

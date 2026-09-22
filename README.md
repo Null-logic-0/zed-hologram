@@ -24,7 +24,7 @@ Works on standalone `.holo` files and, just as well, on `~HOLO` sigils inside
 | Embedded languages | Elixir inside `{...}`, JavaScript in `<script>`, CSS in `<style>` and in `style="..."` |
 | Editing | auto-indent, bracket matching and auto-close, `cmd-/` comment toggle, tag wrapping |
 | Navigation | outline panel and breadcrumbs for elements, components and blocks |
-| Formatting | delegates to `mix format`, which uses Hologram's formatter |
+| Formatting | delegates to `mix format`; needs a Hologram formatter that has not shipped yet, see below |
 
 ## Templates inside `.ex` files
 
@@ -97,6 +97,12 @@ and registers the language. The first install downloads a WebAssembly
 toolchain, so give it a minute.
 
 ## Formatting
+
+Formatting depends on `Hologram.Template.Formatter`, which is not in any
+released Hologram. It exists only as the open draft
+[bartblast/hologram#573](https://github.com/bartblast/hologram/pull/573).
+Until that merges, the setup below is inert: `mix format` does not recognise
+`.holo` and hands your buffer back unchanged.
 
 A Zed extension cannot configure a formatter, so this part is a setting you
 add yourself. There are two halves.
@@ -198,6 +204,13 @@ extension.
 
 ## Limitations
 
+- **Formatting does not work in remote projects.** Over SSH or in a dev
+  container the host runs the formatter, but Zed only ships an extension to
+  the host when its manifest declares a language server, debug adapter or
+  debug locator. This one declares none, so the host never learns about HOLO
+  and the formatter setting binds to nothing, silently. Highlighting, the
+  outline and the status bar all still work, because those are client-side.
+  See [#1](https://github.com/Null-logic-0/zed-hologram/issues/1).
 - **Raw block bodies are opaque.** Hologram still parses markup inside
   `{%raw}`; we treat the body as one literal span. Expressions are inert
   either way, which is the point of `{%raw}`.

@@ -1,8 +1,17 @@
-# Hologram for Zed
+# HOLO Formatter for Zed
 
 HOLO template language support for the [Hologram](https://hologram.page/)
 Elixir framework: syntax highlighting, indentation, bracket matching, an
 outline, and formatting through Hologram's own formatter.
+
+> Community extension, not affiliated with the Hologram project. An official
+> Hologram extension for Zed is planned
+> ([hologram#834](https://github.com/bartblast/hologram/issues/834)); the
+> `hologram` extension id and the name "Hologram" are reserved for it.
+>
+> Despite the name, this is a full language extension: highlighting,
+> injection, indentation and outline, with formatting delegated to
+> `mix format`.
 
 Works on standalone `.holo` files and, just as well, on `~HOLO` sigils inside
 `.ex` files, which is how most Hologram code is written.
